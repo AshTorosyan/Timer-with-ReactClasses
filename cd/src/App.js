@@ -1,36 +1,41 @@
 import React, { Component } from "react";
 import { Wrapper } from "./Components/Wrapper/Wrapper";
-import classes from "./UserInterface/Global.module.css"
+import classes from "./UserInterface/Global.module.css";
+import "./App.css";
 
  class App extends Component {
 constructor () {
   super();
   this.state = {
-    date: (new Date()).toLocaleTimeString()
+    time: (new Date()).toLocaleTimeString(),
+    date: (new Date()).toLocaleDateString()
   }
 }
 
 componentDidMount() {
   this.setState({
-    date: (new Date()).toLocaleTimeString()
+    time: (new Date()).toLocaleTimeString(),
+    date: (new Date()).toLocaleDateString()
   });
 }
 
 componentDidUpdate() {
   setTimeout(() => {
    this.setState({
-    date: (new Date()).toLocaleTimeString()
+    time: (new Date()).toLocaleTimeString(),
+    date: (new Date()).toLocaleDateString()
    })
-  }, 1000)
+  }, 1000);
 }
 
 
   render() {
     return (
       <Wrapper className={classes.Wrapper}>
-      <p>{this.state.date}</p>
+      <p>{this.state.date}</p>  
+      <p>{this.state.time}</p>
       </Wrapper>
-    )
+    );
   }
 }
 
